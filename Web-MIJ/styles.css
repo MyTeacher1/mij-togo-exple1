@@ -1,0 +1,1672 @@
+
+html {
+    scroll-behavior: smooth;
+    /* Décale l'arrivée pour que le menu fixe ne cache pas le début de la section */
+    scroll-padding-top: 90px; 
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Roboto, sans sans-serif;
+}
+body{
+    background-color: #f4f8fb;
+    color: #0f172a;
+}
+
+/* entête */
+
+.site-header{
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-img {
+    height: 70px;
+    width: auto;
+}
+
+.logo-text {
+    font-size: 0.95rem;
+    font-weight: bold;
+    color: #0284c7;
+    line-height: 1.2;
+}
+
+/* Navigation */
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 800;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+.nav-menu a:hover, .nav-menu a.active {
+    color: #d4af37; 
+}
+
+/* Menus déroulants */
+
+.dropdown {
+    position: relative;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #ffffff;
+    min-width: 220px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    border-radius: 6px;
+    overflow: hidden;
+    z-index: 1001;
+    padding: 8px 0;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 10px 18px;
+    color: #333;
+    white-space: nowrap;
+}
+
+.dropdown-content a:hover {
+    background-color: #f4f4f4;
+    color: #d4af37;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.burger-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+/* section héro */
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+}
+span{
+    font-weight: bold;
+    font-size: 3.2rem;
+    color: #fff;
+}
+
+.hero-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+    /* Effet de flou et assombrissement */
+    filter: blur(0.8px) brightness(0.5);
+    transform: scale(1.05); /* Évite les bords blancs du flou */
+    /* border: 2px solid #01080b;
+    border-radius: 40px; */
+}
+
+.slide.active {
+    opacity: 0.8;
+}
+
+/* Contenu par-dessus l'image floutée */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    color: #ffffff;
+    padding: 20px;
+}
+
+.hero-content h1 {
+    color: #0284c7;
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+}
+
+.btn-hero {
+    display: inline-block;
+    padding: 14px 32px;
+    background-color: transparent;
+    border: 2px solid #ffffff;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+}
+.btn-hero:hover {
+    background-color: #ffffff;
+    color: #0284c7;
+}
+
+/* Carte d'accès */
+.quick-features {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1100px;
+    margin: -60px auto 50px auto;
+    position: relative;
+    z-index: 10;
+    padding: 0 20px;
+    margin-top: -20px;
+}
+.feature-card {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.09);
+    flex: 1;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+.feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.feature-card h3 {
+    font-size: 1.2rem;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.feature-card p {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.5;
+}
+.feature-card img{
+    width: 100px;
+    height: auto;
+}
+
+.welcome{
+    padding: 60px 0;
+    text-align: justify;
+    padding: 20px;
+    margin: 20px;
+}
+
+.welcome h1{
+    font-size: 2.2rem;
+    color: #0284c7;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.welcome p{
+    font-size: 1.2rem;
+    text-align: justify;
+    margin-bottom: 15px;
+}
+.vision{
+    color: #ffffff;
+    background-color: #0284c7;
+    text-align: justify;
+    padding: 20px;
+    margin: 20px;
+}
+
+.vision h1{
+    font-size: 2rem;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.vision p{
+    font-size: 1.2rem;
+    text-align: justify;
+    margin-bottom: 15px;
+}
+.vision .p1{
+    font-size: 1.2rem;
+    font-style: italic;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* Section Actualités (Cartes / Boîtes) */
+.actualites-section {
+    padding: 70px 0;
+    background-color: #f4f8fb;
+}
+.actualites-section p{
+    text-align: justify;
+}
+.section-title {
+    text-align: center;
+    font-size: 2.3rem;
+    color: #0284c7;
+    margin-bottom: 40px;
+}
+.actualites-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    padding: 20px;
+    margin: 20px;
+}
+
+.actu-card {
+    background-color: #f4f8fb;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.actu-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+.actu-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+.actu-body {
+    padding: 20px;
+}
+
+.actu-body h2 {
+    font-size: 1.3rem;
+    color: #0f172a;
+    margin-bottom: 12px;
+}
+.actu-body p {
+    font-size: 0.95rem;
+    color: #64748b;
+    line-height: 1.6;
+}
+/* Section Pre-Footer Contact (Bleu Ciel) */
+.pre-footer-contact {
+    background-color: #0f172a; /* Bleu ciel selon l'image exemple */
+    color: #ffffff;
+    padding: 20px;
+    margin: 20px;
+}
+.contact-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+.contact-col {
+    flex: 1;
+    min-width: 250px;
+}
+.brand-block {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+.footer-logo {
+    height: 60px;
+    width: auto;
+}
+.brand-title h3 {
+    font-size: 1.1rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+.brand-title span {
+    font-size: 0.75rem;
+    display: block;
+}
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+.social-links a {
+    color: #ffffff;
+    background-color: rgba(255,255,255,0.2);
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 0.85rem;
+}
+.contact-col h2 {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+.contact-col p {
+    margin-bottom: 12px;
+    font-size: 1rem;
+}
+.doc-links {
+    list-style: none;
+}
+.doc-links li {
+    margin-bottom: 10px;
+}
+.doc-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.doc-links a:hover {
+    text-decoration: underline;
+}
+/* Footer simple */
+.site-footer {
+    display: flex;
+    justify-content: space-between;
+    background-color: #f4f8fb;
+    color: #0284c7;
+    text-align: center;
+    padding: 40px 100px;
+    font-size: 0.9rem;
+    border-top: 1px solid #0284c7;
+}
+.site-footer p{
+    text-align: center;
+}
+.site-footer .p2{
+    font-size: O.6rem;
+   font-style: italic;
+   padding-top: 5px;
+}
+
+/* PAGE HISTORIQUE */
+
+
+/* Bannière d'en-tête pour les sous-pages */
+.page-banner {
+    background-color: #c8e9fa; /* Bleu ciel principal */
+    color: #000;
+    padding: 50px 0;
+    text-align: center;
+}
+.page-banner h1 {
+    font-size: 2.3rem;
+    margin-bottom: 10px;
+}
+.page-banner p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+/* Page Content */
+.page-content {
+    padding: 50px 40px;
+}
+.content-body h2 {
+    background-color: #fff;
+    width: fit-content;
+    border-left: 10px solid #0284c7;
+    color: #0284c7;
+    font-size: 1.6rem;
+    /* margin: 25px 0 10px 0; */
+    padding: 10px 15px;
+}
+.content-body p {
+    line-height: 1.5;
+    text-align: justify;
+    color: #000;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+.content-body span{
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #000;
+}
+/* Boîte de Téléchargement PDF */
+.download-box {
+    background-color: #e0f2fe;
+    border-left: 5px solid #0284c7;
+    padding: 25px;
+    border-radius: 8px;
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.download-info h3 {
+    color: #0f172a;
+    margin-bottom: 8px;
+}
+.download-info p {
+    color: #334155;
+    margin: 0;
+}
+.btn-download {
+    background-color: #0284c7;
+    color: #ffffff;
+    padding: 12px 24px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+}
+
+.btn-download:hover {
+    background-color: #0369a1;
+}
+/* Bouton Retour en haut */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 45px;
+    height: 45px;
+    background-color: #0284c7;
+    color: #ffffff;
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    display: none; /* Masqué par défaut */
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    z-index: 1000;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.back-to-top:hover {
+    background-color: #0f172a;
+    transform: translateY(-3px);
+}
+
+/* Mot du Président */
+
+.president-section {
+    border-top: 1px solid #0284c7;
+    padding: 60px 0;
+    /* background-color: #ffffff; */
+    border-radius: 5px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    margin: 40px 0;
+}
+.president-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 50px;
+    padding: 0 50px;
+}
+/* BLOC PHOTO (GAUCHE) */
+.president-profile {
+    flex: 0 0 350px;
+    text-align: center;
+}
+.photo-wrapper {
+    width: 100%;
+    max-width: 370px;
+    height: 515px;
+    margin: 0 auto 20px auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(2, 132, 199, 0.18);
+    border: 4px solid #3196e4;
+}
+.president-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.president-info h3 {
+    font-size: 1.25rem;
+    color: #0284c7;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+.president-info span {
+    font-size: 0.7rem;
+    font-style: italic;
+    color: #000;
+    font-weight: 600;
+    line-height: 1.4;
+    display: block;
+}
+/* BLOC TEXTE (DROITE) */
+.president-message {
+    flex: 1;
+}
+.section-badge {
+    display: inline-block;
+    background-color: #e0f2fe;
+    color: #0284c7;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 20px;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+.president-message h2 {
+    font-size: 1.5rem;
+    font-style: italic;
+    color: #0284c7;
+    line-height: 1.3;
+    margin-bottom: 20px;
+}
+.scripture-quote {
+    border-top: 6px solid #d4af37;
+    background-color: #0284c7;
+    padding: 18px 22px;
+    text-align: justify;
+    margin-bottom: 25px;
+    border-radius: 0 8px 8px 0;
+    color: #fff;
+    font-size: 1.02rem;
+    line-height: 1.6;
+}
+blockquote .scripture-quote cite {
+    display: block;
+    font-style: italic;
+    margin-top: 10px;
+    font-style: normal;
+    font-weight: 700;
+    color: #000000;
+    font-size: 0.95rem;
+}
+.president-signature {
+    font-weight: 600;
+    color: #0f172a;
+    margin-top: 25px;
+    font-style: italic;
+}
+
+/* SECTION CRÉDO DE FOI (ARRIÈRE-PLAN FLOUTÉ) */
+
+.credo-section {
+    position: relative;
+    padding: 50px 30px;
+    margin: 50px;
+    background-image: linear-gradient(rgba(135, 206, 235, 0.9), rgba(135, 206, 235, 0.9)), url('imgs/sem3.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Effet parallaxe très esthétique */
+    overflow: hidden;
+    border-top: 6px solid #0284c7;
+    border-radius: 0 8px;
+}
+
+
+
+.credo-container {
+    position: relative;
+    z-index: 2; /* Reste bien au-dessus du fond flouté */
+    color: #ffffff;
+}
+.credo-title {
+    background-color: rgba(255, 255, 255, 0.2);
+    text-align: center;
+    font-size: 2.3rem;
+    color: #0284c7;
+    margin-bottom: 10px;
+    /* text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); */
+}
+.credo-intro {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #e0f2fe; /* Bleu ciel très clair */
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+}
+/* Grille pour organiser joliment les 17 paragraphes */
+.credo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+}
+.credo-item {
+    background: #fff;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-left: 4px solid #0284c7; /* Ligne bleu ciel */
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    /* transition: transform 0.3s ease, background-color 0.3s ease; */
+}
+/* .credo-item:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.2);
+    border-left-color: #38bdf8;
+} */
+.credo-number {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff; /* Jaune doré */
+    background: rgba(135, 206, 235, 0.6);
+    padding: 6px 12px;
+    border-radius: 6px;
+    min-width: 42px;
+    text-align: center;
+    padding-top: 0;
+}
+.credo-item p {
+    font-size: 0.98rem;
+    line-height: 1.6;
+    color: #000000;
+    margin: 0;
+    text-align: left;
+}
+.credo-item p strong {
+    color: #0284c7;
+    font-weight: bolder;
+    text-transform: uppercase;
+    text-decoration: underline;
+}
+.credo-item p span {
+    color: #0284c7;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+/* SECTION : BUREAU EXÉCUTIF */
+
+.bureau-section {
+    padding: 60px 0;
+    background-color: #f4f8fb;
+}
+.bureau-block {
+    margin-bottom: 10px;
+    padding: 0 40px;
+}
+.bureau-title {
+    font-size: 1.5rem;
+    color: #0284c7; /* Bleu ciel principal */
+    margin-bottom: 10px;
+    position: relative;
+    padding-bottom: 10px;
+}
+.bureau-intro {
+    font-size: 1.05rem;
+    line-height: 1.5;
+    color: #475569;
+    text-align: justify;
+    /* max-width: 950px; */
+}
+.bureau-intro span{
+    color:#000;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+/* Organes de l'Église */
+.organes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 25px;
+}
+.organe-card {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+    border-top: 4px solid #0284c7;
+    transition: transform 0.3s ease;
+}
+.organe-card:hover {
+    transform: translateY(-4px);
+}
+.organe-card h3 {
+    font-size: 1.2rem;
+    color: #0f172a;
+    margin-bottom: 10px;
+}
+.organe-card p {
+    font-size: 1.05rem;
+    color: #64748b;
+    line-height: 1.5;
+}
+
+/* Grille des Membres du Conseil Exécutif (8 membres) */
+.members-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+.member-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+.member-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(2, 132, 199, 0.15);
+}
+.member-photo-wrapper {
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+    background-color: #e2e8f0;
+}
+.member-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+.member-card:hover .member-photo {
+    transform: scale(1.05);
+}
+.member-info {
+    padding: 20px 15px;
+}
+
+/* Utilisation des balises demandées : h1 (nom), h2 (titre), p (description) */
+.member-info h1 {
+    font-size: 1.15rem;
+    color: #0f172a;
+    font-weight: 700;
+    margin-bottom: 6px;
+    line-height: 1.3;
+}
+.member-info h2 {
+    font-size: 0.92rem;
+    color: #0284c7; /* Bleu ciel */
+    font-weight: 600;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.member-info p {
+    font-size: 0.88rem;
+    color: #64748b;
+    line-height: 1.5;
+}
+
+/* SECTION DEPARTEMENTS */
+
+.departements-section {
+    padding: 70px 40px;
+    background-color: #ffffff;
+}
+.section-header-center {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 50px auto;
+}
+.section-header-center p{
+    text-align:justify;
+}
+.section-main-title {
+    font-size: 2.2rem;
+    color: #0284c7; /* Bleu ciel principal */
+    margin-bottom: 12px;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+.section-main-title::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70px;
+    height: 4px;
+    background-color: #0284c7;
+    border-radius: 2px;
+}
+.section-subtitle {
+    font-size: 1.05rem;
+    color: #64748b;
+    line-height: 1.4;
+}
+
+/* Grille des 4 départements */
+.departements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 30px;
+}
+.dept-card {
+    background-color: #f4f8fb;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+.dept-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(2, 132, 199, 0.15);
+}
+
+.dept-image-wrapper {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+}
+.dept-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.dept-card:hover .dept-image {
+    transform: scale(1.06);
+}
+.dept-content {
+    padding: 25px 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.dept-content h2 {
+    font-size: 1.2rem;
+    color: #0f172a;
+    margin-bottom: 12px;
+    font-weight: 900;
+}
+.dept-content p {
+    font-size: 0.95rem;
+    color: #475569;
+    line-height: 1.4;
+    margin: 0;
+}
+
+/* SECTION : RÉGIONS ECCLÉSIASTIQUES */
+
+.regions-section {
+    padding: 70px 20px;
+    background-color: #f4f8fb;
+}
+.regions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 10px;
+    margin-top: 40px;
+}
+.region-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+.region-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(2, 132, 199, 0.15);
+}
+.region-photo-wrapper {
+    position: relative;
+    width: 100%;
+    height: 260px;
+    overflow: hidden;
+    background-color: #e2e8f0;
+}
+.region-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.region-card:hover .region-photo {
+    transform: scale(1.05);
+}
+.region-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background-color: #0284c7;
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 5px 12px;
+    border-radius: 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+.region-badge.alert-badge {
+    background-color: #0f172a; /* Couleur sombre distinctive pour la remarque */
+}
+.region-body {
+    padding: 25px 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.region-body h2 {
+    font-size: 1.35rem;
+    color: #0284c7;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+.region-pastor {
+    font-size: 1rem;
+    color: #0f172a;
+    margin-bottom: 12px;
+    border-left: 4px solid #0284c7;
+    padding-left: 10px;
+}
+.region-pastor span {
+    font-size: 0.85rem;
+    color: #64748b;
+    font-weight: 600;
+}
+.region-desc {
+    font-size: 0.92rem;
+    color: #475569;
+    line-height: 1.4;
+    margin: 0;
+}
+
+
+/* SECTION : VALEURS ET CONVICTIONS */
+
+.valeurs-section {
+    padding: 70px 40px;
+    background-color: #ffffff;
+}
+.valeurs-content {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    max-width: 95%;
+    margin: 0 auto;
+}
+.valeurs-block {
+    background-color: #f4f8fb;
+    padding: 30px 20px;
+    border-radius: 12px;
+    border-left: 5px solid #0284c7; /* Ligne bleu ciel */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.valeurs-block:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(2, 132, 199, 0.12);
+}
+.valeurs-block h2 {
+    font-size: 1.6rem;
+    color: #0284c7; /* Bleu ciel */
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+.valeurs-block p {
+    font-size: 1.05rem;
+    color: #475569;
+    line-height: 1.5;
+    margin: 0;
+    text-align: justify;
+}
+.valeurs-block p span{
+    font-size: 1.2rem;
+    color: #000;
+    font-weight: bold;
+}
+.valeurs-block p strong{
+    font-style: italic;
+}
+
+
+/* SECTION : NOS INSTITUTIONS (Style inspiré) */
+
+.institution-section {
+    padding: 60px 40px;
+    /* background-color: #ffffff; */
+    border-left: 1px solid #0284c7;
+    border-radius: 0 16px;
+}
+.institution-section h2 {
+    font-size: 1.7rem;
+    color: #0284c7;
+    margin-bottom: 25px;
+    font-weight: 700;
+    border-bottom: 3px solid #e2e8f0;
+    padding-bottom: 10px;
+}
+.institution-header {
+    margin-bottom: 35px;
+    border-bottom: 2px solid #0284c7;
+    padding-bottom: 12px;
+}
+
+/* HABILLAGE DU TEXTE AUTOUR DE L'IMAGE (Reproduit le rendu de la capture d'écran) */
+.institution-wrap-box {
+    margin-bottom: 45px;
+}
+.institution-wrap-box .wrap-image-container {
+    float: left;
+    width: 42%;
+    max-width: 480px;
+    margin-right: 25px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+}
+.institution-wrap-box .wrap-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+/* Un seul paragraphe s'écoulant à droite puis sous l'image */
+.single-p-text {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: #334155;
+    text-align: justify;
+    margin: 0;
+}
+/* Clearfix pour contenir les éléments flottants */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+.section-divider {
+    border: 0;
+    height: 1px;
+    background-color: #cbd5e1;
+    margin: 50px 0;
+}
+/* CARTE BLOCS DE MESSAGES (DIRECTEUR & PRÉSIDENT) */
+.message-card-box {
+    display: flex;
+    align-items: flex-start;
+    gap: 35px;
+    background-color: #f4f8fb;
+    border-radius: 12px;
+    padding: 35px;
+    border: 1px solid #e0f2fe;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    margin-top: 30px;
+}
+/* Version Directeur : Texte à gauche, Profil à droite */
+.directory-box {
+    border-right: 4px solid #0284c7;
+}
+/* Version Président : Profil à gauche, Texte à droite */
+.president-source-box {
+    border-left: 4px solid #0284c7;
+}
+.message-text-content {
+    flex: 1;
+}
+.sub-badge {
+    display: inline-block;
+    background-color: #e0f2fe;
+    color: #0284c7;
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    letter-spacing: 0.8px;
+}
+.message-text-content h3 {
+    font-size: 1.4rem;
+    color: #0f172a;
+    margin-bottom: 15px;
+}
+.message-text-content p {
+    font-size: 0.98rem;
+    line-height: 1.5;
+    color: #475569;
+    margin-bottom: 12px;
+}
+.single-p-text span{
+    font-size: 0.98rem;
+    color: #000;
+}
+.message-profile-side {
+    flex: 0 0 240px;
+    text-align: center;
+}
+.profile-photo-wrapper {
+    width: 100%;
+    height: 270px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 12px;
+    background-color: #e2e8f0;
+}
+.profile-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.profile-meta h4 {
+    font-size: 1.05rem;
+    color: #0f172a;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+.profile-meta span {
+    font-size: 0.9rem;
+    color: #0284c7;
+    font-weight: 600;
+}
+
+/* RESSOURCES */
+
+/* NOS ACTUALITES */ 
+
+.actu-card {
+    position: relative; 
+    background-color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e2e8f0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.actualite-badge {
+    position: absolute;
+    left: 15px;
+    top: 15px; /* Ou positionné au milieu verticalement selon ta préférence */
+    background-color: #0284c7;
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 4px;
+    z-index: 10;
+}
+
+
+/* SECTION : NOTRE ÉGLISE EN CHIFFRE (RAPPORTS) */
+.rapports-stats-sections {
+    padding: 80px 15px;
+    background-image: linear-gradient(rgba(135, 206, 235, 0.95), rgba(135, 206, 235, 0.95)), url('imgs/banner5.jpeg');
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+}
+.reports-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+.reports-header h2 {
+    font-size: 2rem;
+    color: #000;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+.dots-decoration {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+}
+.dots-decoration span {
+    width: 6px;
+    height: 6px;
+    background-color: #fff;
+    border-radius: 50%;
+}
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+.stat-card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 30px 15px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-top: 5px solid #0284c7;
+}
+.stat-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(2, 132, 199, 0.25);
+}
+.stat-icon {
+    margin-bottom: 12px;
+    display: inline-flex;
+    padding: 10px;
+    background-color: #f0f9ff;
+    border-radius: 50%;
+}
+.stat-number {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: 2px;
+}
+.stat-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #64748b;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+/* SECTION GALLERY */
+.gallery-section {
+    padding: 70px 30px;
+    background-color: #f4f8fb;
+}
+.gallery-header {
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto 40px auto;
+}
+.gallery-header h2 {
+    font-size: 2.2rem;
+    color: #0f172a;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+.gallery-header p {
+    font-size: 1.05rem;
+    color: #64748b;
+    line-height: 1.5;
+}
+/* Structure du carrousel */
+.gallery-carousel-wrapper {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 50px; /* Espace pour les flèches sur les côtés */
+}
+.gallery-track {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none; /* Masque la barre de défilement sur Firefox */
+    -ms-overflow-style: none; /* Masque sur IE/Edge */
+    padding: 10px 0;
+}
+
+.gallery-track::-webkit-scrollbar {
+    display: none; /* Masque la barre de défilement sur Chrome/Safari */
+}
+/* Style des cartes photos (5 visibles sur grand écran) */
+.gallery-item {
+    flex: 0 0 calc(20% - 16px); /* 20% de largeur par élément = exactement 5 photos visibles (100 / 5 = 20) */
+    height: 250px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    background-color: #cbd5e1;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.gallery-item span{
+    font-size: 1rem;
+}
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(2, 132, 199, 0.2);
+}
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.08);
+}
+/* Effet au survol avec le titre de la photo */
+.gallery-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px 10px;
+    background: linear-gradient(to top, rgba(15, 23, 42, 0.85), transparent);
+    color: #ffffff;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+/* Boutons Flèches Gauche et Droite */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #0284c7;
+    color: #ffffff;
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.carousel-btn:hover {
+    background-color: #0369a1;
+    transform: translateY(-50%) scale(1.1);
+}
+.prev-btn {
+    left: -5px;
+}
+.next-btn {
+    right: -5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Responsive Mobile */
+@media (max-width: 768px) {
+    .burger-btn {
+        display: block;
+    }
+
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #ffffff;
+        padding: 20px;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    }
+
+    .nav-menu.actif {
+        display: flex;
+    }
+
+    .hero-content{
+        align-items: center;
+        text-align: center;
+    }
+    .hero-content h1{
+        font-size: 1.5rem;
+    }
+    .hero-content span{
+        font-size: 1.6rem;
+        text-align: center;
+    }
+    .dropdown-content {
+        position: static;
+        box-shadow: none;
+        padding-left: 15px;
+    }
+
+    .contact-banner {
+        flex-direction: column;
+    }
+
+    /* SECTION MOT DU PRESIDENT */
+    .president-container {
+        flex-direction: column; /* Bascule la photo et le texte l'un en dessous de l'autre */
+        align-items: center;
+        gap: 25px;
+    }
+
+    .president-profile {
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 320px; /* Centre la photo joliment sur mobile */
+    }
+
+    .photo-wrapper {
+        height: 360px;
+    }
+
+    .president-message {
+        width: 100%;
+        padding: 20px 18px;
+    }
+
+    .scripture-quote {
+        font-size: 0.98rem;
+    }
+
+    .message-text p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+    
+    /* SECTION CREDO DE FOI */
+    .credo-section {
+        background-attachment: scroll; /* Plus fluide sur mobile */
+        padding: 50px 0;
+    }
+
+    .credo-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* SECTION BUREAU */
+    .members-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 20px;
+    }
+
+    .bureau-title {
+        font-size: 1.6rem;
+    }
+
+    /* DEPARTEMENTS */
+    .departements-grid {
+        grid-template-columns: 1fr; /* 1 seule colonne sur mobile */
+    }
+
+    .section-main-title {
+        font-size: 1.8rem;
+    }
+
+    /* REGIONS ECCLESIASTIQUES */
+    .regions-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* VALEURS ET CONVICTIONS */
+
+    .valeurs-block {
+        padding: 25px 20px;
+    }
+
+    .valeurs-block h2 {
+        font-size: 1.35rem;
+    }
+
+    .valeurs-block p {
+        font-size: 0.98rem;
+        text-align: left;
+    }
+
+
+    /* Nos institutions */
+
+    .institution-wrap-box .wrap-image-container {
+        float: none;
+        width: 100%;
+        max-width: 100%;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .message-card-box {
+        flex-direction: column;
+        align-items: center;
+        padding: 25px;
+    }
+
+    .directory-box {
+        flex-direction: column-reverse; /* Remet le profil au-dessus sur mobile pour la clarté */
+    }
+
+    .message-profile-side {
+        width: 100%;
+        max-width: 260px;
+    }
+    /* SECTION gallery */
+
+    
+
+    
+}
+
+@media (max-width: 992px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 colonnes sur tablettes */
+    }
+}
+
+@media (max-width: 576px) {
+    .reports-header h2 {
+        font-size: 1.7rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr; /* 1 seule colonne sur les petits mobiles */
+        max-width: 320px; /* Empêche les cartes de s'étirer excessivement sur mobile */
+    }
+
+    .stat-card {
+        padding: 25px 15px;
+    }
+}
+
+
+/* RESPONSIVE DESIGN POUR LA GALERIE */
+@media (max-width: 1200px) {
+    .gallery-item {
+        flex: 0 0 calc(25% - 15px); /* 4 photos visibles sur tablette large */
+    }
+}
+
+@media (max-width: 900px) {
+    .gallery-item {
+        flex: 0 0 calc(33.333% - 14px); /* 3 photos visibles sur tablette */
+    }
+}
+
+@media (max-width: 600px) {
+    .gallery-carousel-wrapper {
+        padding: 0 35px;
+    }
+    .gallery-item {
+        flex: 0 0 calc(50% - 10px); /* 2 photos visibles sur mobile */
+        height: 200px;
+    }
+    .carousel-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+}
+
+
